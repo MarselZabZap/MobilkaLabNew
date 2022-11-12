@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">My Application</string>
+    //Калькулятор
+    <string name="number_1">Число 1</string>
+    <string name="number_2">Число 2</string>
+    <string name="btnDiff">Вычесть</string>
+    <string name="btnSum">Сложить</string>
+
+    //Смешная страница
+    <string name="text"></string>
+    <string name="btn1">Нажми меня</string>
+    <string name="btn2">Привет</string>
+
+    //Тест по истории
+    <string name="test">Тест на 10 вопросов</string>
+    <string name="q1">1)Когда отменили крепостное право?</string>
+    <string-array name="ans1">
+        <item>1866</item>
+        <item>1861</item>
+        <item>1868</item>
+        <item>1964</item>
+    </string-array>
+
+    <string name="q2">2)Год крещения Руси?</string>
+    <string-array name="ans2">
+        <item>1001</item>
+        <item>988</item>
+        <item>998</item>
+        <item>1940</item>
+    </string-array>
+
+    <string name="q3">3)Кто правил раньше?</string>
+    <string-array name="ans3">
+        <item>Елизавета 1</item>
+        <item>Николай 2</item>
+        <item>Петр 2</item>
+        <item>Анна Иоановна</item>
+    </string-array>
+
+    <string name="q4">4)Кто сбросил атомную бомбу на Хиросиму?</string>
+    <string-array name="ans4">
+        <item>СССР</item>
+        <item>Япония</item>
+        <item>США</item>
+        <item>Германия</item>
+    </string-array>
+
+    <string name="q5">5)Год создания атомной бомбы в СССР?</string>
+    <string-array name="ans5">
+        <item>1955</item>
+        <item>1946</item>
+        <item>1950</item>
+        <item>1949</item>
+    </string-array>
+
+    <string name="q6">6)Год распада СССР?</string>
+    <string-array name="ans6">
+        <item>1991</item>
+        <item>1992</item>
+        <item>1999</item>
+        <item>2022</item>
+    </string-array>
+
+    <string name="q7">7)Почему Гитлер застрелился?</string>
+    <string-array name="ans7">
+        <item>Из-за поражения в войне</item>
+        <item>Из-за смерти жены</item>
+        <item>Оба варианта верны</item>
+        <item>Причина не известна</item>
+    </string-array>
+
+    <string name="q8">8)Кто составил «Словарь выпивохи»?</string>
+    <string-array name="ans8">
+        <item>Бенджамен Франклин</item>
+        <item>Бенджемин Баттон</item>
+        <item>Христофор Колумб</item>
+        <item>Альберт Энштейн</item>
+    </string-array>
+
+    <string name="q9">9)Что произошло 9(22) 1905?</string>
+    <string-array name="ans9">
+        <item>Кровавое воскресенье</item>
+        <item>Черное воскресенье</item>
+        <item>Солнечное воскресенье</item>
+        <item>Воскресное воскресенье</item>
+    </string-array>
+
+    <string name="q10">10)По какой причине Билл Гейтс ушел из Microsoft?</string>
+    <string-array name="ans10">
+        <item>Устал</item>
+        <item>Он не уходил</item>
+        <item>Хотел больше времени уделять детям</item>
+        <item>Его обманом лишили прав</item>
+    </string-array>
+
+    <string name="check_name">Отправить результат</string>
+
+
+    <string name="nextLab">Следующая лаба</string>
+</resources>
