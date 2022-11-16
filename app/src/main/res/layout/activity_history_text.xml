@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ans2"
-                android:entries="@array/ans1"
+                android:entries="@array/ans2"
                 android:layout_below="@+id/q2"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"/>

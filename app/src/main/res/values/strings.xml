@@ -66,12 +66,12 @@
         <item>Из-за поражения в войне</item>
         <item>Из-за смерти жены</item>
         <item>Оба варианта верны</item>
-        <item>Причина не известна</item>
+        <item>Причина неизвестна</item>
     </string-array>
 
     <string name="q8">8)Кто составил «Словарь выпивохи»?</string>
     <string-array name="ans8">
-        <item>Бенджамен Франклин</item>
+        <item>Бенджамин Франклин</item>
         <item>Бенджемин Баттон</item>
         <item>Христофор Колумб</item>
         <item>Альберт Энштейн</item>
@@ -89,7 +89,7 @@
     <string-array name="ans10">
         <item>Устал</item>
         <item>Он не уходил</item>
-        <item>Хотел больше времени уделять детям</item>
+        <item>Хотел больше свободного времени, и помочь детям</item>
         <item>Его обманом лишили прав</item>
     </string-array>
 
