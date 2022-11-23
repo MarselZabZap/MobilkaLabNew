@@ -95,6 +95,13 @@
 
     <string name="check_name">Отправить результат</string>
 
+    <string name="eMail">Почта</string>
+    <string name="passwd">Пароль</string>
+    <string name="eMail_Valid">Подтверждение почты</string>
+    <string name="passwd_Valid">Подтверждение пароля</string>
+    <string name="save">Сохранить</string>
+    <string name="download">Загрузить</string>
+
 
     <string name="nextLab">Следующая лаба</string>
 </resources>
