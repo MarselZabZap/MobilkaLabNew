@@ -3,6 +3,8 @@ package com.example.mdk0103lab;
 import static com.example.mdk0103lab.RegistrationActivity.SAVE_TEXT1;
 import static com.example.mdk0103lab.RegistrationActivity.SAVE_TEXT2;
 import static com.example.mdk0103lab.RegistrationActivity.mySP;
+import static com.example.mdk0103lab.RegistrationActivity.saveLog;
+import static com.example.mdk0103lab.RegistrationActivity.savePass;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,12 +32,12 @@ public class SingInActivity extends AppCompatActivity {
     }
 
     void validation() {
-        mySP = getPreferences(MODE_PRIVATE);
-
-        String saveLog = mySP.getString(SAVE_TEXT1, "");
+        saveLog = mySP.getString(SAVE_TEXT1, "");
+        savePass= mySP.getString(SAVE_TEXT2, "");
         Log.d("TAG", "validation: " + saveLog);
+        Log.d("TAG", "validation: " + savePass);
 
-        /*if (!saveLog.equals(login.getText().toString()) || login.getText().toString().isEmpty()) {
+        if (!saveLog.equals(login.getText().toString()) || login.getText().toString().isEmpty()) {
             Toast.makeText(this, "Неверный логин", Toast.LENGTH_LONG).show();
         }
         else if (!savePass.equals(password.getText().toString()) || password.getText().toString().isEmpty()) {
@@ -43,6 +45,6 @@ public class SingInActivity extends AppCompatActivity {
         }
         else {
             Toast.makeText(this, "Успешно", Toast.LENGTH_LONG).show();
-        }*/
+        }
     }
 }
