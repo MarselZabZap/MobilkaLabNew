@@ -2,6 +2,8 @@ package com.example.mdk0103lab;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,10 +13,11 @@ import android.widget.Toast;
 public class RegistrationActivity extends AppCompatActivity {
 
     EditText log, pass, logV, passV;
-    Button save, load;
-    SharedPreferences mySP;
-    final String SAVE_TEXT1 = "Сохранение почты";
-    final String SAVE_TEXT2 = "Сохранение пароля";
+    Button save, load, singIn;
+    public static SharedPreferences mySP;
+    static final String USER_DATA = "";
+    static final String SAVE_TEXT1 = "Сохранение почты";
+    static final String SAVE_TEXT2 = "Сохранение пароля";
     final String SAVE_TEXT3 = "Сохранение подтверждения почты";
     final String SAVE_TEXT4 = "Сохранение подтверждения пароля";
 
@@ -30,9 +33,13 @@ public class RegistrationActivity extends AppCompatActivity {
         passV = findViewById(R.id.edtPassword_Valid);
         save = findViewById(R.id.btnSave);
         load = findViewById(R.id.btnDownload);
+        singIn = findViewById(R.id.bntSingIn);
 
         save.setOnClickListener(view -> save());
         load.setOnClickListener(view -> load());
+
+        singIn.setOnClickListener(view ->
+                startActivity(new Intent(this, SingInActivity.class)));
     }
 
     public void save(){
@@ -43,22 +50,34 @@ public class RegistrationActivity extends AppCompatActivity {
         loadPref();
     }
 
+
     void savePref(){
-        mySP = getPreferences(MODE_PRIVATE);
 
-        SharedPreferences.Editor edLog = mySP.edit();
-        edLog.putString(SAVE_TEXT1, log.getText().toString());
-        edLog.putString(SAVE_TEXT2, pass.getText().toString());
-        edLog.putString(SAVE_TEXT3, logV.getText().toString());
-        edLog.putString(SAVE_TEXT4, passV.getText().toString());
-        edLog.apply();
+        if (log.getText().toString().isEmpty() || pass.getText().toString().isEmpty() || logV.getText().toString().isEmpty() || passV.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show();
+        }
+        else if (pass.getText().toString().length() < 10) {
+            Toast.makeText(this, "Пароль должен состоять минимум из 10 символов", Toast.LENGTH_LONG).show();
+        }
+        else if (!passV.getText().toString().equals(pass.getText().toString())) {
+            Toast.makeText(this, "Пароли не совпадают", Toast.LENGTH_LONG).show();
+        }
+        else {
+            mySP = getSharedPreferences(USER_DATA, Context.MODE_PRIVATE);
 
-        log.getText().clear();
-        pass.getText().clear();
-        logV.getText().clear();
-        passV.getText().clear();
+            SharedPreferences.Editor edLog = mySP.edit();
+            edLog.putString(SAVE_TEXT1, log.getText().toString());
+            edLog.putString(SAVE_TEXT2, pass.getText().toString());
+            edLog.putString(SAVE_TEXT3, logV.getText().toString());
+            edLog.putString(SAVE_TEXT4, passV.getText().toString());
 
-        Toast.makeText(this, "Сохранено", Toast.LENGTH_LONG).show();
+            log.getText().clear();
+            pass.getText().clear();
+            logV.getText().clear();
+            passV.getText().clear();
+            edLog.apply();
+            Toast.makeText(this, "Сохранено", Toast.LENGTH_LONG).show();
+        }
     }
 
     void loadPref(){

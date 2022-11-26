@@ -97,6 +97,15 @@
 
         </com.google.android.material.button.MaterialButton>
 
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bntSingIn"
+            android:text="Войти"
+            android:textSize="15sp">
+
+        </com.google.android.material.button.MaterialButton>
+
     </LinearLayout>
 
 </RelativeLayout>
