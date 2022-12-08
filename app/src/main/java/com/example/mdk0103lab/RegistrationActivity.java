@@ -2,17 +2,19 @@ package com.example.mdk0103lab;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    EditText log, pass, logV, passV;
+    EditText log, pass, logV, passV, email;
     Button save, load, singIn;
     public static SharedPreferences mySP;
     static final String USER_DATA = "";
@@ -23,6 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
     public static String saveLog, savePass, saveLog_Valid, savePass_Valid;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,7 @@ public class RegistrationActivity extends AppCompatActivity {
         save = findViewById(R.id.btnSave);
         load = findViewById(R.id.btnDownload);
         singIn = findViewById(R.id.bntSingIn);
+        email = findViewById(R.id.edtEmail);
 
         save.setOnClickListener(view -> save());
         load.setOnClickListener(view -> load());
@@ -54,11 +58,23 @@ public class RegistrationActivity extends AppCompatActivity {
 
     void savePref(){
 
-        if (log.getText().toString().isEmpty() || pass.getText().toString().isEmpty() || logV.getText().toString().isEmpty() || passV.getText().toString().isEmpty()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
+            Toast.makeText(this, "Некорректная почта", Toast.LENGTH_LONG).show();
+        }
+        else if (log.getText().toString().isEmpty() || pass.getText().toString().isEmpty() || logV.getText().toString().isEmpty() || passV.getText().toString().isEmpty()) {
             Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show();
         }
-        else if (pass.getText().toString().length() < 10) {
-            Toast.makeText(this, "Пароль должен состоять минимум из 10 символов", Toast.LENGTH_LONG).show();
+        else if (!(log.getText().toString().matches("[a-zA-Zа-яА-Я0-9@$#?&_.-]+"))){
+            Toast.makeText(this, "Не корректный логин", Toast.LENGTH_LONG).show();
+        }
+        else if (!(pass.getText().toString().matches("[a-zA-Zа-яА-Я0-9@$#?&_.-]+"))){
+            Toast.makeText(this, "Не корректный пароль", Toast.LENGTH_LONG).show();
+        }
+        else if (pass.getText().toString().length() < 6) {
+            Toast.makeText(this, "Пароль должен состоять минимум из 6 символов", Toast.LENGTH_LONG).show();
+        }
+        else if (!logV.getText().toString().equals(log.getText().toString())) {
+            Toast.makeText(this, "Логины не совпадают", Toast.LENGTH_LONG).show();
         }
         else if (!passV.getText().toString().equals(pass.getText().toString())) {
             Toast.makeText(this, "Пароли не совпадают", Toast.LENGTH_LONG).show();
